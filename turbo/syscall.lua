@@ -122,6 +122,22 @@ elseif ffi.arch == "arm" then
         SYS_clock_getres     = 264,
         SYS_clock_nanosleep  = 265
     }
+elseif ffi.arch == "arm64" then
+    cmds = {
+        SYS_stat             = 80,
+        SYS_fstat            = 80,  -- Note: Same as stat on aarch64 (uses statx internally)
+        SYS_lstat            = 80,  -- Note: Same as stat on aarch64 (uses statx internally)
+        SYS_getdents         = 61,
+        SYS_io_setup         = 0,
+        SYS_io_destroy       = 1,
+        SYS_io_getevents     = 4,
+        SYS_io_submit        = 2,
+        SYS_io_cancel        = 3,
+        SYS_clock_settime    = 112,
+        SYS_clock_gettime    = 113,
+        SYS_clock_getres     = 114,
+        SYS_clock_nanosleep  = 115
+    }
 elseif ffi.arch == "mipsel" or ffi.arch == "mips" then
     cmds = {
         SYS_stat             = 4106,
